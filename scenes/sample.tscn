@@ -327,7 +327,7 @@ environment = ExtResource("1_apxki")
 camera_attributes = SubResource("CameraAttributesPractical_u8ojw")
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("2_hgw2l")]
-transform = Transform3D(-0.605864, 0, -0.795569, 0, 1, 0, 0.795569, 0, -0.605864, 3.52827, 16.7422, -36.348)
+transform = Transform3D(-0.694169, 0, -0.719813, 0, 1, 0, 0.719813, 0, -0.694169, 25.6903, 0.399718, -51.4583)
 view = NodePath("../View")
 
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target") groups=["View"]]
