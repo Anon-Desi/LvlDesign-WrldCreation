@@ -1,9 +1,8 @@
-[gd_scene load_steps=41 format=3 uid="uid://cijgebcmf7dic"]
+[gd_scene load_steps=40 format=3 uid="uid://cijgebcmf7dic"]
 
 [ext_resource type="PackedScene" uid="uid://dbr3dh46cbskt" path="res://objects/wall.tscn" id="1_m1we3"]
 [ext_resource type="PackedScene" uid="uid://0v6t454aaexr" path="res://objects/door.tscn" id="2_ale7m"]
 [ext_resource type="PackedScene" uid="uid://dfpisimsgf5ce" path="res://objects/coin.tscn" id="3_w1vb3"]
-[ext_resource type="PackedScene" path="res://objects/dither_obstacle.tscn" id="4_s4okk"]
 [ext_resource type="PackedScene" uid="uid://g73m8k0j7lyo" path="res://objects/button.tscn" id="5_qrru3"]
 [ext_resource type="PackedScene" uid="uid://cmjug11lh2a1u" path="res://objects/section.tscn" id="6_l4uup"]
 [ext_resource type="PackedScene" uid="uid://cyvet7kb6y80r" path="res://objects/checkpoint.tscn" id="7_mp8tq"]
@@ -35,7 +34,29 @@
 [ext_resource type="Theme" uid="uid://d3avl0mr4r87l" path="res://themes/default_theme.tres" id="33_e4bem"]
 [ext_resource type="Texture2D" uid="uid://dm50aa4qogm65" path="res://sprites/button_rectangle_depth_gloss.png" id="34_lu4ms"]
 
-[sub_resource type="Curve3D" id="Curve3D_ovxq8"]
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_u8ojw"]
+auto_exposure_scale = 0.75
+dof_blur_far_distance = 0.01
+
+[sub_resource type="LabelSettings" id="LabelSettings_ri8jt"]
+font = ExtResource("32_hkrit")
+font_size = 128
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x4d2s"]
+font = ExtResource("32_hkrit")
+font_size = 32
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v6r7m"]
+font = ExtResource("32_hkrit")
+font_size = 42
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="Curve3D" id="Curve3D_ytghs"]
 bake_interval = 18.0
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, -21, 4, -24, 0, 0, 0, 0, 0, 0, -21, 4, -18, 0, 0, 0, 0, 0, 0, -21, 4, -24),
@@ -43,7 +64,7 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Curve3D" id="Curve3D_a6kbe"]
+[sub_resource type="Curve3D" id="Curve3D_ein05"]
 bake_interval = 18.0
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, -31, 10, -22, 0, 0, 0, 0, 0, 0, -24.815, 9, -21, 0, 0, 0, 0, 0, 0, -24.815, 6.5, -15.234, 0, 0, 0, 0, 0, 0, -24.815, 9, -21, 0, 0, 0, 0, 0, 0, -31, 10, -22),
@@ -51,29 +72,143 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_trufe"]
-auto_exposure_scale = 0.75
-dof_blur_far_distance = 0.01
+[node name="Main" type="Node3D"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_og2qt"]
-font = ExtResource("32_hkrit")
-font_size = 128
-shadow_color = Color(0, 0, 0, 0.376471)
-shadow_offset = Vector2(2, 2)
+[node name="Environment" type="WorldEnvironment" parent="."]
+unique_name_in_owner = true
+environment = ExtResource("26_auemy")
+camera_attributes = SubResource("CameraAttributesPractical_u8ojw")
 
-[sub_resource type="LabelSettings" id="LabelSettings_jsiho"]
-font = ExtResource("32_hkrit")
-font_size = 32
-shadow_color = Color(0, 0, 0, 0.376471)
-shadow_offset = Vector2(2, 2)
+[node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("27_l7xw6")]
+transform = Transform3D(-0.694169, 0, -0.719813, 0, 1, 0, 0.719813, 0, -0.694169, 21.8243, 2.48259, -54.1566)
+view = NodePath("../View")
 
-[sub_resource type="LabelSettings" id="LabelSettings_51m6v"]
-font = ExtResource("32_hkrit")
-font_size = 42
-shadow_color = Color(0, 0, 0, 0.376471)
-shadow_offset = Vector2(2, 2)
+[node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target") groups=["View"]]
+process_mode = 3
+transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, 0, 0, 0)
+script = ExtResource("28_rnh00")
+target = NodePath("../Player")
 
-[node name="Game" type="Node3D"]
+[node name="Camera" type="Camera3D" parent="View"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.6839, 22.3732, -28.7003)
+current = true
+fov = 40.0
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
+shadow_enabled = true
+shadow_opacity = 0.75
+
+[node name="HUD" type="CanvasLayer" parent="." groups=["HUD"]]
+process_mode = 3
+script = ExtResource("29_o1xrn")
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="TextureRect" parent="HUD/Control"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 67.0
+offset_right = 313.0
+offset_bottom = 323.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("30_g56lx")
+
+[node name="x" type="Label" parent="HUD/Control"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 64.0
+offset_right = 144.0
+offset_bottom = 123.0
+text = "×"
+label_settings = ExtResource("31_tit8q")
+
+[node name="Level Complete" type="Label" parent="HUD/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -429.0
+offset_top = 139.0
+offset_right = 429.0
+offset_bottom = 287.0
+grow_horizontal = 2
+text = "Level Complete!"
+label_settings = SubResource("LabelSettings_ri8jt")
+
+[node name="CoinsLabel" type="Label" parent="HUD/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 144.0
+offset_top = 64.0
+offset_right = 368.0
+offset_bottom = 123.0
+text = "0"
+label_settings = ExtResource("31_tit8q")
+
+[node name="PlayAgainButton" type="Button" parent="HUD/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -258.0
+offset_right = 196.0
+offset_bottom = -122.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+theme = ExtResource("33_e4bem")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("32_hkrit")
+theme_override_font_sizes/font_size = 60
+text = "Play Again?"
+icon = ExtResource("34_lu4ms")
+flat = true
+icon_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="HUD/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.5
+offset_top = 59.0
+offset_right = 48.5
+offset_bottom = 115.0
+grow_horizontal = 2
+text = "00"
+label_settings = SubResource("LabelSettings_x4d2s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeNameLabel" type="Label" parent="HUD/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.0
+offset_top = 22.0
+offset_right = 49.0
+offset_bottom = 78.0
+grow_horizontal = 2
+text = "TIME"
+label_settings = SubResource("LabelSettings_v6r7m")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Real World" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3577, 0, -59.7845)
@@ -126,17 +261,6 @@ transform = Transform3D(0.00411381, -8.11971, 2.55484e-07, 0, -3.54936e-07, -5.8
 
 [node name="wall" parent="Real World/Left Wall" instance=ExtResource("1_m1we3")]
 transform = Transform3D(0.00848213, 0, -32.9988, 0, 30, 0, 0.999964, 0, 0.279911, -6.84802, 0.43995, 0.0920639)
-
-[node name="DitherObstacle" parent="Real World/Left Wall/wall" instance=ExtResource("4_s4okk")]
-min_distance_dither = 1.0
-max_distance_dither = 7.0
-
-[node name="door" parent="Real World/Left Wall" instance=ExtResource("2_ale7m")]
-transform = Transform3D(-1.63, 0, 0.000558376, 0, 2.01, 0, -0.000910163, 0, -1, -24.8922, 0.45871, 0.216316)
-
-[node name="button" parent="Real World/Left Wall" node_paths=PackedStringArray("target") instance=ExtResource("5_qrru3")]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -22.3903, 0.508644, -1.72284)
-target = NodePath("../door")
 
 [node name="Section" parent="Real World/Left Wall" instance=ExtResource("6_l4uup")]
 transform = Transform3D(5.06977, 0, -0.0284829, 0, 2.5, 0, 0.0481362, 0, 2.99986, -33.9042, 0.460106, 11.8983)
@@ -256,17 +380,14 @@ transform = Transform3D(0.0254436, 0, 0.862906, 0, 0.863, 0, -1.72481, 0, 0.0127
 [node name="platform-medium16" parent="Real World/Left Wall" instance=ExtResource("8_pgadf")]
 transform = Transform3D(2.5, 0, 3.21865e-06, 0, 1, 0, -5.36442e-06, 0, 1.5, -32, 7.5, 28.609)
 
-[node name="door2" parent="Real World/Left Wall/platform-medium16" instance=ExtResource("2_ale7m")]
-transform = Transform3D(-0.0298747, 0, 0.399789, 0, 1.5, 0, -1.53252, 0, -0.0216484, 0.283688, 0.486433, -0.0548172)
+[node name="spike-block-wide2" parent="Real World/Left Wall/platform-medium16" instance=ExtResource("11_74wny")]
+transform = Transform3D(1.74919e-08, 0.600249, -0.0242899, 1.5, -9.83507e-08, 2.24183e-15, -1.08829e-11, -0.000373513, -1.53267, -0.0669632, 1.98643, -2.33704)
 
-[node name="spike-block-wide2" parent="Real World/Left Wall/platform-medium16/door2" instance=ExtResource("11_74wny")]
-transform = Transform3D(-6.10306e-10, -0.0209432, 0.999903, 1, -6.55671e-08, 1.49455e-15, 4.37071e-08, 1.49985, 0.0139621, 1.5, 1, -0.765)
+[node name="spike-block-wide3" parent="Real World/Left Wall/platform-medium16" instance=ExtResource("11_74wny")]
+transform = Transform3D(1.74753e-08, 0.599684, -0.0298747, 1.5, -9.83507e-08, -7.10484e-16, -9.46286e-10, -0.0324727, -1.53252, 0.0226593, 1.98643, 2.26052)
 
-[node name="spike-block-wide3" parent="Real World/Left Wall/platform-medium16/door2" instance=ExtResource("11_74wny")]
-transform = Transform3D(2.38434e-15, 6.55671e-08, 1, 1, -6.55671e-08, -4.73656e-16, 4.37114e-08, 1.5, -4.37114e-08, -1.5, 1, -0.765)
-
-[node name="Moving Box2" parent="Real World/Left Wall/platform-medium16/door2" instance=ExtResource("13_o7ovk")]
-transform = Transform3D(-0.0214286, 0, -0.434254, 0, 0.666667, 0, 0.998784, 0, -0.0492857, 0.0645366, 0.231673, -3.0157)
+[node name="Moving Box2" parent="Real World/Left Wall/platform-medium16" instance=ExtResource("13_o7ovk")]
+transform = Transform3D(0.399943, 0, -0.00673069, 0, 1, 0, 0.0112177, 0, 0.66657, -0.923885, 0.833942, -0.088438)
 
 [node name="platform-medium17" parent="Real World/Left Wall" instance=ExtResource("8_pgadf")]
 transform = Transform3D(2.5, 0, 3.21865e-06, 0, 1, 0, -5.36442e-06, 0, 1.5, -32, 7.5, 28.609)
@@ -327,7 +448,7 @@ transform = Transform3D(0.13, 0, 0, 0, 0.2, 0, 0, 0, 0.44, 1.65744, 1.24915, 0.0
 
 [node name="button" parent="Real World/Left Wall/platform-medium19" node_paths=PackedStringArray("target") instance=ExtResource("5_qrru3")]
 transform = Transform3D(0.176, 0, -0.000279583, 0, 1, 0, 0.000523299, 0, 0.5875, 1.74152, 1.38358, 0.0281725)
-target = NodePath("../../platform-medium16/door2")
+target = NodePath("../../../../Level1Door")
 
 [node name="Floor Traps" type="Node3D" parent="Real World/Left Wall/platform-medium19"]
 transform = Transform3D(0.199989, 0, 0.00208339, 0, 1, 0, -0.00520845, 0, 0.499973, -0.404365, 0.556146, 1.31053)
@@ -625,7 +746,7 @@ transform = Transform3D(1, 0, 9.53674e-07, 0, 1, 0, -9.53674e-07, 0, 1, -2.88641
 
 [node name="moving_object_path" parent="Real World/Left Wall" node_paths=PackedStringArray("object_to_move") instance=ExtResource("15_d8mho")]
 transform = Transform3D(1, 0, 2.5928e-06, 0, 1, 0, -2.5928e-06, 0, 1, 17.8629, 0, 40.9963)
-curve = SubResource("Curve3D_ovxq8")
+curve = SubResource("Curve3D_ytghs")
 object_to_move = NodePath("platform-moving")
 movement_speed = 1.5
 is_on_from_start = false
@@ -635,7 +756,7 @@ transform = Transform3D(1.5, 0, -1.54972e-06, 0, 1, 0, 1.54972e-06, 0, 1.5, -20.
 
 [node name="moving_object_path2" parent="Real World/Left Wall" node_paths=PackedStringArray("object_to_move") instance=ExtResource("15_d8mho")]
 transform = Transform3D(1, 0, 7.03335e-06, 0, 1, 0, -7.03335e-06, 0, 1, 17.8629, 0, 40.9963)
-curve = SubResource("Curve3D_a6kbe")
+curve = SubResource("Curve3D_ein05")
 object_to_move = NodePath("platform-moving2")
 movement_speed = 1.5
 
@@ -656,6 +777,10 @@ transform = Transform3D(-2.79345, 0, 1.09391, 0, 3, 0, -1.09391, 0, -2.79345, -2
 
 [node name="player_kill_volume" parent="Real World/Left Wall" instance=ExtResource("20_7j46a")]
 transform = Transform3D(0.761878, 0, 0.647721, 0, 1, 0, -0.647721, 0, 0.761878, 17.8629, -10, 40.9963)
+
+[node name="button2" parent="Real World/Left Wall" node_paths=PackedStringArray("target") instance=ExtResource("5_qrru3")]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -22.3903, 0.508644, -1.72284)
+target = NodePath("../../../StartDoor2")
 
 [node name="Main Room" type="Node3D" parent="Real World"]
 transform = Transform3D(4.47382, 0, 7.6911, 0, 1, 0, -5.38377, 0, 6.39117, -11.948, 0, -3.29575)
@@ -699,10 +824,6 @@ transform = Transform3D(0.00516261, 0, 0.502116, 0, 3.515, 0, -0.351481, 0, 0.00
 [node name="platform-medium" parent="Real World/Main Room" instance=ExtResource("8_pgadf")]
 transform = Transform3D(1.19209e-07, 0, -0.4, 0, 0.4, 0, 0.4, 0, 1.19209e-07, -0.064, 3.809, -2.358)
 
-[node name="door2" parent="Real World/Main Room" instance=ExtResource("2_ale7m")]
-transform = Transform3D(-0.232857, 0, 8.97795e-05, 0, 2.01, 0, -0.000102438, 0, -0.1, -0.0785131, 4.02045, -2.31314)
-open_door_with_coins = 1
-
 [node name="flag" parent="Real World/Main Room" instance=ExtResource("23_3vip4")]
 transform = Transform3D(-0.0163175, 0, -0.285248, 0, 2, 0, 0.199673, 0, -0.0114222, -0.0968657, 4.009, -2.64713)
 
@@ -718,142 +839,20 @@ transform = Transform3D(2.1107, 0, -0.00124082, 0, 1, 0, 0.00538784, 0, 0.237999
 [node name="sign4" parent="Real World/Main Room" instance=ExtResource("25_rkehv")]
 transform = Transform3D(0.275524, 0, -0.189008, 0, 3, 0, 0.137672, 0, 0.378262, 0.342573, 4.03743, -2.19556)
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
-shadow_enabled = true
-shadow_opacity = 0.75
+[node name="StartDoor2" parent="." instance=ExtResource("2_ale7m")]
+transform = Transform3D(-1.34788, 0, 0.648146, 0, 2.25, 0, -1.14722, 0, -0.761516, -6.19513, 0, -58.7523)
 
-[node name="Environment" type="WorldEnvironment" parent="."]
-unique_name_in_owner = true
-environment = ExtResource("26_auemy")
-camera_attributes = SubResource("CameraAttributesPractical_trufe")
+[node name="CompleteDoor" parent="." instance=ExtResource("2_ale7m")]
+transform = Transform3D(1.04255, 0, 0.768708, 0, 2.01, 0, -1.25299, 0, 0.639601, -5.73214, 4.02045, -77.4412)
+look_at_door_when_opens = true
+open_door_with_coins = 1
 
-[node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("27_l7xw6")]
-transform = Transform3D(-0.694169, 0, -0.719813, 0, 1, 0, 0.719813, 0, -0.694169, 25.6903, 0.399718, -51.4583)
-view = NodePath("")
+[node name="Level1Door" parent="." instance=ExtResource("2_ale7m")]
+transform = Transform3D(-1.43206, 0, -0.782511, 0, 1.5, 0, 1.79977, 0, -0.622637, -29.3723, 7.98643, -41.3382)
+look_at_door_when_opens = true
 
-[node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target") groups=["View"]]
-process_mode = 3
-transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, 0, 0, 0)
-script = ExtResource("28_rnh00")
-target = NodePath("")
-
-[node name="Camera" type="Camera3D" parent="View"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
-current = true
-fov = 40.0
-
-[node name="HUD" type="CanvasLayer" parent="." groups=["HUD"]]
-process_mode = 3
-script = ExtResource("29_o1xrn")
-
-[node name="Control" type="Control" parent="HUD"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Icon" type="TextureRect" parent="HUD/Control"]
-layout_mode = 0
-offset_left = 57.0
-offset_top = 67.0
-offset_right = 313.0
-offset_bottom = 323.0
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("30_g56lx")
-
-[node name="x" type="Label" parent="HUD/Control"]
-layout_mode = 0
-offset_left = 112.0
-offset_top = 64.0
-offset_right = 144.0
-offset_bottom = 123.0
-text = "×"
-label_settings = ExtResource("31_tit8q")
-
-[node name="Level Complete" type="Label" parent="HUD/Control"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -429.0
-offset_top = 139.0
-offset_right = 429.0
-offset_bottom = 287.0
-grow_horizontal = 2
-text = "Level Complete!"
-label_settings = SubResource("LabelSettings_og2qt")
-
-[node name="CoinsLabel" type="Label" parent="HUD/Control"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 144.0
-offset_top = 64.0
-offset_right = 368.0
-offset_bottom = 123.0
-text = "0"
-label_settings = ExtResource("31_tit8q")
-
-[node name="PlayAgainButton" type="Button" parent="HUD/Control"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -196.0
-offset_top = -258.0
-offset_right = 196.0
-offset_bottom = -122.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 0
-theme = ExtResource("33_e4bem")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 2
-theme_override_fonts/font = ExtResource("32_hkrit")
-theme_override_font_sizes/font_size = 60
-text = "Play Again?"
-icon = ExtResource("34_lu4ms")
-flat = true
-icon_alignment = 1
-
-[node name="TimeLabel" type="Label" parent="HUD/Control"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -48.5
-offset_top = 59.0
-offset_right = 48.5
-offset_bottom = 115.0
-grow_horizontal = 2
-text = "00"
-label_settings = SubResource("LabelSettings_jsiho")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TimeNameLabel" type="Label" parent="HUD/Control"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -49.0
-offset_top = 22.0
-offset_right = 49.0
-offset_bottom = 78.0
-grow_horizontal = 2
-text = "TIME"
-label_settings = SubResource("LabelSettings_51m6v")
-horizontal_alignment = 1
-vertical_alignment = 1
-
+[connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
+[connection signal="reached_goal" from="Player" to="HUD" method="_on_player_reached_goal"]
 [connection signal="pressed" from="HUD/Control/PlayAgainButton" to="HUD" method="_on_play_again_button_pressed"]
 
 [editable path="Real World/Left Wall/platform-falling3"]
