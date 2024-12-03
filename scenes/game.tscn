@@ -311,10 +311,10 @@ transform = Transform3D(1, 0, 1.3113e-06, 0, 1, 0, -1.3113e-06, 0, 1, -6.314, 4.
 transform = Transform3D(1, 0, 1.2815e-06, 0, 1, 0, -1.2815e-06, 0, 1, -8.491, 5, 14.309)
 
 [node name="spike-block-wide" parent="Real World/Left Wall" instance=ExtResource("11_74wny")]
-transform = Transform3D(0.625, 0, 9.0897e-07, 0, 0.5, 0, -1.13621e-06, 0, 0.5, -3.20116, 4.5, 17.7289)
+transform = Transform3D(0.625, 0, 9.0897e-07, 0, 0.5, 0, -1.13621e-06, 0, 0.5, -3.20116, 4.5, 17.3681)
 
 [node name="spike-block-wide2" parent="Real World/Left Wall" instance=ExtResource("11_74wny")]
-transform = Transform3D(0.625, 0, 9.0897e-07, 0, 0.5, 0, -1.13621e-06, 0, 0.5, -3.20116, 4.5, 20.4348)
+transform = Transform3D(0.625, 0, 9.0897e-07, 0, 0.5, 0, -1.13621e-06, 0, 0.5, -3.20116, 4.5, 21.1079)
 
 [node name="platform-medium8" parent="Real World/Left Wall" instance=ExtResource("8_pgadf")]
 transform = Transform3D(1.5, 0, 1.66893e-06, 0, 1, 0, -2.80142e-06, 0, 1, -12.861, 5.5, 14.35)

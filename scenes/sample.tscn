@@ -258,7 +258,7 @@
 [ext_resource type="PackedScene" uid="uid://dmawexufubfy8" path="res://models/prototyping/models/wall-window-cutout-large.glb" id="260_1kp06"]
 [ext_resource type="PackedScene" uid="uid://boxdo8ifb73df" path="res://models/prototyping/models/wall-window-large.glb" id="261_yxd13"]
 [ext_resource type="PackedScene" uid="uid://dtgd123j37wo7" path="res://models/prototyping/models/wall-window-medium.glb" id="262_w1lsq"]
-[ext_resource type="PackedScene" path="res://objects/dither_obstacle.tscn" id="263_6etxy"]
+[ext_resource type="PackedScene" uid="uid://dqe83pil81wbx" path="res://objects/dither_obstacle.tscn" id="263_6etxy"]
 [ext_resource type="PackedScene" uid="uid://cbieow8d28a7m" path="res://models/prototyping/models/wall-window-small.glb" id="263_cjyqh"]
 [ext_resource type="PackedScene" uid="uid://d16ldw73ada7w" path="res://models/prototyping/models/weapon-shield.glb" id="264_rr7np"]
 [ext_resource type="PackedScene" uid="uid://c48perftxj5a6" path="res://models/prototyping/models/weapon-sword.glb" id="265_78v47"]
