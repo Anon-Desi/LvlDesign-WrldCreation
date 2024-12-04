@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cijgebcmf7dic"]
+[gd_scene load_steps=45 format=3 uid="uid://cijgebcmf7dic"]
 
 [ext_resource type="PackedScene" uid="uid://dbr3dh46cbskt" path="res://objects/wall.tscn" id="1_m1we3"]
 [ext_resource type="PackedScene" uid="uid://0v6t454aaexr" path="res://objects/door.tscn" id="2_ale7m"]
@@ -33,6 +33,11 @@
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="32_hkrit"]
 [ext_resource type="Theme" uid="uid://d3avl0mr4r87l" path="res://themes/default_theme.tres" id="33_e4bem"]
 [ext_resource type="Texture2D" uid="uid://dm50aa4qogm65" path="res://sprites/button_rectangle_depth_gloss.png" id="34_lu4ms"]
+[ext_resource type="PackedScene" uid="uid://cqdmicia4gklj" path="res://models/props/platform-fortified.glb" id="35_ctrpv"]
+[ext_resource type="PackedScene" uid="uid://dnbt3mrfvervy" path="res://models/props/platform-overhang.glb" id="36_gwr8r"]
+[ext_resource type="PackedScene" uid="uid://3yuxff1xl0x2" path="res://models/props/platform-ramp.glb" id="37_adjo1"]
+[ext_resource type="PackedScene" uid="uid://cqu5ljxhyuquy" path="res://models/prototyping/models/ColumnPlatform.tscn" id="38_7m1j1"]
+[ext_resource type="PackedScene" uid="uid://kxlanit681hg" path="res://models/props/platform.glb" id="38_asdu0"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_u8ojw"]
 auto_exposure_scale = 0.75
@@ -821,9 +826,6 @@ transform = Transform3D(-0.000403992, 0, -0.873993, 0, 3.44, 0, 0.0999992, 0, -0
 [node name="stairs-small2" parent="Real World/Main Room" instance=ExtResource("22_5n275")]
 transform = Transform3D(0.00516261, 0, 0.502116, 0, 3.515, 0, -0.351481, 0, 0.00361377, -0.09, 0.5, -1.588)
 
-[node name="platform-medium" parent="Real World/Main Room" instance=ExtResource("8_pgadf")]
-transform = Transform3D(1.19209e-07, 0, -0.4, 0, 0.4, 0, 0.4, 0, 1.19209e-07, -0.064, 3.809, -2.358)
-
 [node name="flag" parent="Real World/Main Room" instance=ExtResource("23_3vip4")]
 transform = Transform3D(-0.0163175, 0, -0.285248, 0, 2, 0, 0.199673, 0, -0.0114222, -0.0968657, 4.009, -2.64713)
 
@@ -851,8 +853,31 @@ open_door_with_coins = 1
 transform = Transform3D(-1.43206, 0, -0.782511, 0, 1.5, 0, 1.79977, 0, -0.622637, -29.3723, 7.98643, -41.3382)
 look_at_door_when_opens = true
 
+[node name="platform-fortified2" parent="." instance=ExtResource("35_ctrpv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0659, 14.0522, -95.8929)
+
+[node name="platform-overhang2" parent="." instance=ExtResource("36_gwr8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.998, 14, -96.821)
+
+[node name="platform-ramp2" parent="." instance=ExtResource("37_adjo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4813, 14, -97.535)
+
+[node name="platform2" parent="." instance=ExtResource("38_asdu0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.822, 14, -95.972)
+
+[node name="Bottom Wall4" parent="." instance=ExtResource("1_m1we3")]
+transform = Transform3D(-3.34849e-08, -36.3258, -43.4846, 1, -2.07279e-06, -9.17848e-14, -2.80971e-08, -30.481, 51.8229, 19.0729, 30.2244, -35.6018)
+
+[node name="ColumnPlatform" parent="." instance=ExtResource("38_7m1j1")]
+transform = Transform3D(47.9066, 0, -23.8871, 0, 0.4, 0, 40.1243, 0, 28.52, -6.19142, 4.07226, -77.8477)
+
+[node name="ColumnPlatform2" parent="." instance=ExtResource("38_7m1j1")]
+transform = Transform3D(20.9596, 0, -23.8871, 0, 7.25, 0, 17.5548, 0, 28.5201, -3.501, 0.485, -75.59)
+
 [connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
 [connection signal="reached_goal" from="Player" to="HUD" method="_on_player_reached_goal"]
 [connection signal="pressed" from="HUD/Control/PlayAgainButton" to="HUD" method="_on_play_again_button_pressed"]
 
 [editable path="Real World/Left Wall/platform-falling3"]
+[editable path="Real World/Main Room/stairs-small2"]
+[editable path="platform-fortified2"]

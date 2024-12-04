@@ -1950,6 +1950,24 @@ transform = Transform3D(2.1107, 0, -0.00124082, 0, 1, 0, 0.00538784, 0, 0.237999
 [node name="sign4" parent="Real World/Main Room" instance=ExtResource("270_ef50d")]
 transform = Transform3D(0.275524, 0, -0.189008, 0, 3, 0, 0.137672, 0, 0.378262, 0.342573, 4.03743, -2.19556)
 
+[node name="crate2" parent="Real World/Main Room" instance=ExtResource("124_lpusx")]
+transform = Transform3D(0.0913024, 0, -0.109873, 0, 1, 0, 0.0769109, 0, 0.0639117, 4.47327, 14.1812, -1.74753)
+
+[node name="platform-fortified2" parent="." instance=ExtResource("153_dkmim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.061, 14, -95.845)
+
+[node name="Bottom Wall4" parent="." instance=ExtResource("25_ow4b3")]
+transform = Transform3D(-3.34849e-08, -36.3258, -43.4846, 1, -2.07279e-06, -9.17848e-14, -2.80971e-08, -30.481, 51.8229, 19.0729, 30.2244, -35.6018)
+
+[node name="platform-overhang2" parent="." instance=ExtResource("154_qqtmx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.998, 14, -96.821)
+
+[node name="platform-ramp2" parent="." instance=ExtResource("155_kvour")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4813, 14, -97.535)
+
+[node name="platform2" parent="." instance=ExtResource("156_kd84n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.822, 14, -95.972)
+
 [connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]
 [connection signal="reached_goal" from="Player" to="HUD" method="_on_player_reached_goal"]
 [connection signal="pressed" from="HUD/Control/PlayAgainButton" to="HUD" method="_on_play_again_button_pressed"]
