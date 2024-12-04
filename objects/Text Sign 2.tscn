@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=4 uid="uid://b88yfoxek4ge2"]
 
 [ext_resource type="Texture2D" uid="uid://72ldk18ropuj" path="res://models/props/Textures/colormap.png" id="1_mhwpl"]
-[ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="2_0dn6s"]
+[ext_resource type="Texture2D" uid="uid://vm26lswwdfuw" path="res://models/props/key.png" id="2_0jek7"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="3_5uly2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbxf3"]
@@ -87,8 +87,7 @@ layout_mode = 0
 offset_left = 5.945
 offset_right = 139.31
 offset_bottom = 128.0
-texture = ExtResource("2_0dn6s")
-stretch_mode = 3
+texture = ExtResource("2_0jek7")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="SubViewport"]
 offset = Vector2(557.765, 715.01)

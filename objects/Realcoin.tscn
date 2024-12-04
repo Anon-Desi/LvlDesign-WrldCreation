@@ -1,14 +1,14 @@
-[gd_scene load_steps=13 format=4 uid="uid://dfpisimsgf5ce"]
+[gd_scene load_steps=13 format=4 uid="uid://c7q0246gb8p2o"]
 
-[ext_resource type="Texture2D" uid="uid://0odt7cvj574e" path="res://models/core_models/Textures/colormap.png" id="2_04qt4"]
-[ext_resource type="Script" path="res://objects/coin.gd" id="2_gaakh"]
-[ext_resource type="Texture2D" uid="uid://bs6puxrivhkk2" path="res://sprites/particle.png" id="3_xl1k0"]
+[ext_resource type="Script" path="res://objects/coin.gd" id="1_f1jk4"]
+[ext_resource type="Texture2D" uid="uid://0odt7cvj574e" path="res://models/core_models/Textures/colormap.png" id="2_a753d"]
+[ext_resource type="Texture2D" uid="uid://bs6puxrivhkk2" path="res://sprites/particle.png" id="3_xkw8v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ct61v"]
 resource_name = "colormap"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("2_04qt4")
+albedo_texture = ExtResource("2_a753d")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_wqkpw"]
 _surfaces = [{
@@ -45,7 +45,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wqkpw")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xkafy"]
-albedo_texture = ExtResource("2_04qt4")
+albedo_texture = ExtResource("2_a753d")
 rim_enabled = true
 rim = 0.5
 
@@ -54,7 +54,7 @@ rim = 0.5
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hm51"]
 transparency = 1
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_xl1k0")
+albedo_texture = ExtResource("3_xkw8v")
 billboard_mode = 1
 billboard_keep_scale = true
 proximity_fade_enabled = true
@@ -69,7 +69,7 @@ point_count = 3
 colors = PackedColorArray(0.996094, 0.910156, 0.351563, 1, 1, 1, 1, 1)
 
 [node name="coin" type="Area3D"]
-script = ExtResource("2_gaakh")
+script = ExtResource("1_f1jk4")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)

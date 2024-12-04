@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://cwpf37obbgcre"]
 
 [ext_resource type="Texture2D" uid="uid://72ldk18ropuj" path="res://models/props/Textures/colormap.png" id="1_eb5i8"]
-[ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="2_4bf61"]
+[ext_resource type="Texture2D" uid="uid://vm26lswwdfuw" path="res://models/props/key.png" id="2_fh2ug"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbxf3"]
 resource_name = "colormap"
@@ -43,22 +43,18 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tkw6r")
 
-[sub_resource type="QuadMesh" id="QuadMesh_0r5q5"]
-size = Vector2(0.635, 0.285)
-center_offset = Vector3(-0.07, -0.015, 0)
+[sub_resource type="QuadMesh" id="QuadMesh_mnpd8"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_yoa5g"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3xlnx"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ectl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3sxyw"]
 resource_local_to_scene = true
-blend_mode = 1
-albedo_color = Color(1, 1, 1, 0)
-albedo_texture = SubResource("ViewportTexture_yoa5g")
-albedo_texture_force_srgb = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_3xlnx")
 
-[node name="Coin Sign" type="Node3D"]
-transform = Transform3D(2.68363, 0, -1.34094, 0, 3, 0, 1.34094, 0, 2.68363, 0.342573, 4.03743, -2.19556)
+[node name="Text Sign" type="Node3D"]
+transform = Transform3D(1.71541, 0, 2.46117, 0, 3, 0, -2.46117, 0, 1.71541, 0, 0, 0)
 
 [node name="sign" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_4jvk8")
@@ -66,29 +62,30 @@ skeleton = NodePath("")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
-size = Vector2i(862, 842)
+size = Vector2i(1742, 2147)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]
-offset = Vector2(160, 140)
-scale = Vector2(3.66, 3.66)
-transform = Transform2D(3.66, 0, 0, 3.66, 160, 140)
+offset = Vector2(650, 930)
+scale = Vector2(2.59, 2.59)
+transform = Transform2D(2.59, 0, 0, 2.59, 650, 930)
 
 [node name="Sign" type="Control" parent="SubViewport/CanvasLayer"]
 custom_minimum_size = Vector2(512, 512)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1080.0
+offset_bottom = 1080.0
+scale = Vector2(0.975, 0.975)
 
 [node name="TextureRect" type="TextureRect" parent="SubViewport/CanvasLayer/Sign"]
 layout_mode = 0
 offset_left = 5.945
 offset_right = 139.31
 offset_bottom = 128.0
-texture = ExtResource("2_4bf61")
-stretch_mode = 3
+texture = ExtResource("2_fh2ug")
+expand_mode = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.569238, 0, -3.72529e-09, 0, 1, 0, 2.98023e-08, 0, 0.117937, 0.0384312, 0.409263, 0.0769126)
-mesh = SubResource("QuadMesh_0r5q5")
-surface_material_override/0 = SubResource("StandardMaterial3D_5ectl")
+transform = Transform3D(1.025, 0, 1.19209e-07, 0, 0.94, 0, -1.19209e-07, 0, 1, 0.01, 0.424447, 0.085)
+mesh = SubResource("QuadMesh_mnpd8")
+surface_material_override/0 = SubResource("StandardMaterial3D_3sxyw")

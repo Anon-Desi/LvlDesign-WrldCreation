@@ -1,8 +1,9 @@
-[gd_scene load_steps=49 format=3 uid="uid://cijgebcmf7dic"]
+[gd_scene load_steps=50 format=3 uid="uid://cijgebcmf7dic"]
 
 [ext_resource type="PackedScene" uid="uid://dbr3dh46cbskt" path="res://objects/wall.tscn" id="1_m1we3"]
 [ext_resource type="PackedScene" uid="uid://0v6t454aaexr" path="res://objects/door.tscn" id="2_ale7m"]
-[ext_resource type="PackedScene" uid="uid://dfpisimsgf5ce" path="res://objects/coin.tscn" id="3_w1vb3"]
+[ext_resource type="PackedScene" uid="uid://dfpisimsgf5ce" path="res://objects/RealKey.tscn" id="3_w1vb3"]
+[ext_resource type="Texture2D" uid="uid://vm26lswwdfuw" path="res://models/props/key.png" id="5_b43ga"]
 [ext_resource type="PackedScene" uid="uid://g73m8k0j7lyo" path="res://objects/button.tscn" id="5_qrru3"]
 [ext_resource type="PackedScene" uid="uid://cmjug11lh2a1u" path="res://objects/section.tscn" id="6_l4uup"]
 [ext_resource type="PackedScene" uid="uid://cyvet7kb6y80r" path="res://objects/checkpoint.tscn" id="7_mp8tq"]
@@ -18,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cmkdwrjcbf2o1" path="res://models/props/arrow.glb" id="17_23tgv"]
 [ext_resource type="PackedScene" uid="uid://dgwnhphsmk556" path="res://models/props/barrel.glb" id="18_24u4d"]
 [ext_resource type="PackedScene" uid="uid://b88yfoxek4ge2" path="res://objects/Text Sign 2.tscn" id="19_hhcu5"]
+[ext_resource type="PackedScene" uid="uid://ccfpw1iewf6x7" path="res://objects/plank_platform_2.tscn" id="20_2unnw"]
 [ext_resource type="PackedScene" uid="uid://cxea8lmw7cy1l" path="res://objects/player_kill_volume.tscn" id="20_7j46a"]
 [ext_resource type="PackedScene" uid="uid://bdm3quh21j64k" path="res://objects/platform_large.tscn" id="21_8bo5u"]
 [ext_resource type="PackedScene" uid="uid://d21jt2g5r8jt5" path="res://models/core_models/stairs_small_2.tscn" id="22_5n275"]
@@ -28,7 +30,6 @@
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="27_l7xw6"]
 [ext_resource type="Script" path="res://scripts/view.gd" id="28_rnh00"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="29_o1xrn"]
-[ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="30_g56lx"]
 [ext_resource type="LabelSettings" uid="uid://daohhjonjrdx8" path="res://themes/label_settings.tres" id="31_tit8q"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="32_hkrit"]
 [ext_resource type="Theme" uid="uid://d3avl0mr4r87l" path="res://themes/default_theme.tres" id="33_e4bem"]
@@ -70,19 +71,24 @@ point_count = 3
 
 [sub_resource type="Curve3D" id="Curve3D_audvl"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 13.0191, 3.19718, -30.712, 0, 0, 0, 0, 0, 0, 13.139, 9.4132, -30.8463, 0, 0, 0, 0, 0, 0, 13.0188, 3.17694, -30.7116),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 11.574, 3.16197, -32.2507, 0, 0, 0, 0, 0, 0, 11.574, 9.4, -32.251, 0, 0, 0, 0, 0, 0, 11.574, 3.16197, -32.2507),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
 
 [sub_resource type="Curve3D" id="Curve3D_convd"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1.16908, 6.27517, -15.6527, 0, 0, 0, 0, 0, 0, 2.81349, 5.5, -19.1131, 0, 0, 0, 0, 0, 0, 5.012, 5.5, -21.656, 0, 0, 0, 0, 0, 0, 8.51299, 6.27517, -24.4065, 0, 0, 0, 0, 0, 0, 5.012, 5.5, -21.656, 0, 0, 0, 0, 0, 0, 2.81349, 5.5, -19.1131, 0, 0, 0, 0, 0, 0, 1.16908, 6.27517, -15.6527),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1.16908, 6.27517, -15.6527, 0, 0, 0, 0, 0, 0, 2.813, 5, -19.113, 0, 0, 0, 0, 0, 0, 5.012, 5, -21.656, 0, 0, 0, 0, 0, 0, 8.51299, 6.27517, -24.4065, 0, 0, 0, 0, 0, 0, 5.012, 5, -21.656, 0, 0, 0, 0, 0, 0, 2.813, 5, -19.113, 0, 0, 0, 0, 0, 0, 1.16908, 6.27517, -15.6527),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 7
 
 [sub_resource type="Curve3D" id="Curve3D_ku12d"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 6.26251, 6.27517, -26.358, 0, 0, 0, 0, 0, 0, 3.87061, 5, -22.7829, 0, 0, 0, 0, 0, 0, 1.719, 5, -20.203, 0, 0, 0, 0, 0, 0, -1.22807, 6.27517, -17.6134, 0, 0, 0, 0, 0, 0, 1.7192, 4.99835, -20.2029, 0, 0, 0, 0, 0, 0, 3.87061, 5, -22.7829, 0, 0, 0, 0, 0, 0, 6.26251, 6.27517, -26.358),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
 
 [sub_resource type="Curve3D" id="Curve3D_ytghs"]
 bake_interval = 18.0
@@ -146,7 +152,7 @@ offset_top = 67.0
 offset_right = 313.0
 offset_bottom = 323.0
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("30_g56lx")
+texture = ExtResource("5_b43ga")
 
 [node name="x" type="Label" parent="HUD/Control"]
 layout_mode = 0
@@ -171,7 +177,7 @@ grow_horizontal = 2
 text = "Level Complete!"
 label_settings = SubResource("LabelSettings_ri8jt")
 
-[node name="CoinsLabel" type="Label" parent="HUD/Control"]
+[node name="KeysLabel" type="Label" parent="HUD/Control"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 144.0
@@ -356,12 +362,6 @@ transform = Transform3D(1, 0, 1.3113e-06, 0, 1, 0, -1.3113e-06, 0, 1, 7.838, 5.9
 [node name="platform-medium7" parent="Real World/Left Wall" instance=ExtResource("8_pgadf")]
 transform = Transform3D(1, 0, 1.2815e-06, 0, 1, 0, -1.2815e-06, 0, 1, -0.572693, 5, 16.1369)
 
-[node name="2ndspike-block-wide3" parent="Real World/Left Wall" instance=ExtResource("11_74wny")]
-transform = Transform3D(1.255, 0, 1.82521e-06, 0, 1.004, 0, -2.28151e-06, 0, 1.004, 7.93, 4.5, 8.92032)
-
-[node name="1stspike-block-wide" parent="Real World/Left Wall" instance=ExtResource("11_74wny")]
-transform = Transform3D(1.255, 0, 1.82521e-06, 0, 1.004, 0, -2.28151e-06, 0, 1.004, 7.93, 5.5, 7.38225)
-
 [node name="platform-medium8" parent="Real World/Left Wall" instance=ExtResource("8_pgadf")]
 transform = Transform3D(1.5, 0, 1.66893e-06, 0, 1, 0, -2.80142e-06, 0, 1, -5.14359, 5.5, 17.0664)
 
@@ -389,6 +389,12 @@ transform = Transform3D(1, 0, -2.02656e-06, 0, 1, 0, 2.02656e-06, 0, 1, 0.779503
 
 [node name="platform-medium10" parent="Real World/Left Wall" instance=ExtResource("8_pgadf")]
 transform = Transform3D(1, 0, 2.14577e-06, 0, 1, 0, -2.14577e-06, 0, 1, -7, 6.5, 28.584)
+
+[node name="platform-medium26" parent="Real World/Left Wall" instance=ExtResource("8_pgadf")]
+transform = Transform3D(1, 0, 2.14577e-06, 0, 1, 0, -2.14577e-06, 0, 1, 4.765, 5.5, 32.929)
+
+[node name="Plank_Platform_2" parent="Real World/Left Wall/platform-medium26" instance=ExtResource("20_2unnw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.811, -0.5, -2.937)
 
 [node name="platform-medium11" parent="Real World/Left Wall" instance=ExtResource("8_pgadf")]
 transform = Transform3D(1, 0, 2.14577e-06, 0, 1, 0, -2.14577e-06, 0, 1, -11, 7.5, 28.62)
@@ -899,13 +905,19 @@ transform = Transform3D(20.9596, 0, -23.8871, 0, 7.25, 0, 17.5548, 0, 28.5201, -
 
 [node name="1stMovingObstacle" parent="Extras/MovingPaths" node_paths=PackedStringArray("object_to_move") instance=ExtResource("15_d8mho")]
 curve = SubResource("Curve3D_7eugt")
-object_to_move = NodePath("../../../Real World/Left Wall/1stspike-block-wide")
+object_to_move = NodePath("1stspike-block-wide")
 movement_speed = 1.5
+
+[node name="1stspike-block-wide" parent="Extras/MovingPaths/1stMovingObstacle" instance=ExtResource("11_74wny")]
+transform = Transform3D(1.20377, 0, -0.818718, 0, 1.264, 0, 1.0234, 0, 0.963015, 13.9028, 5.5, -32.3004)
 
 [node name="2ndMovingObstacle" parent="Extras/MovingPaths" node_paths=PackedStringArray("object_to_move") instance=ExtResource("15_d8mho")]
 curve = SubResource("Curve3D_audvl")
-object_to_move = NodePath("../../../Real World/Left Wall/2ndspike-block-wide3")
+object_to_move = NodePath("2ndspike-block-wide3")
 movement_speed = 1.5
+
+[node name="2ndspike-block-wide3" parent="Extras/MovingPaths/2ndMovingObstacle" instance=ExtResource("11_74wny")]
+transform = Transform3D(1.20377, 0, -0.818718, 0, 1.264, 0, 1.0234, 0, 0.963015, 11.8695, 4.5, -32.0102)
 
 [node name="3rdMovingObstacle2" parent="Extras/MovingPaths" node_paths=PackedStringArray("object_to_move") instance=ExtResource("15_d8mho")]
 curve = SubResource("Curve3D_convd")
@@ -913,19 +925,21 @@ object_to_move = NodePath("spike-block")
 movement_speed = 2.0
 
 [node name="spike-block" parent="Extras/MovingPaths/3rdMovingObstacle2" instance=ExtResource("14_sja2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.51299, 6.27517, -24.4065)
 
 [node name="4thMovingObstacle3" parent="Extras/MovingPaths" node_paths=PackedStringArray("object_to_move") instance=ExtResource("15_d8mho")]
 curve = SubResource("Curve3D_ku12d")
 object_to_move = NodePath("spike-block")
-movement_speed = 1.5
+movement_speed = 2.0
 
 [node name="spike-block" parent="Extras/MovingPaths/4thMovingObstacle3" instance=ExtResource("14_sja2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26251, 6.27517, -26.358)
 
 [node name="moving_object_path" parent="Extras/MovingPaths" node_paths=PackedStringArray("object_to_move") instance=ExtResource("15_d8mho")]
 transform = Transform3D(0.76188, 0, -0.647719, 0, 1, 0, 0.647719, 0, 0.76188, 0, 0, 0)
 curve = SubResource("Curve3D_ytghs")
 object_to_move = NodePath("platform-moving")
-movement_speed = 1.5
+movement_speed = 1.8
 is_on_from_start = false
 
 [node name="platform-moving" parent="Extras/MovingPaths/moving_object_path" instance=ExtResource("16_hnnjl")]
@@ -947,3 +961,4 @@ transform = Transform3D(1, 0, -6.94394e-06, 0, 1, 0, 6.94394e-06, 0, 1, -24.8628
 [editable path="Real World/Left Wall/platform-falling3"]
 [editable path="Real World/Main Room/stairs-small2"]
 [editable path="Extras/platform-fortified2"]
+[editable path="Extras/platform-overhang2"]

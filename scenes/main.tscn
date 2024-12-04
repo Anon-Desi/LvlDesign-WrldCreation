@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://uqr4hswv6d2g" path="res://objects/platform_grass_large_round.tscn" id="8_4oh1e"]
 [ext_resource type="PackedScene" uid="uid://dppaaoqj1t6n5" path="res://objects/spike_block.tscn" id="8_6aidc"]
 [ext_resource type="PackedScene" uid="uid://c8up71en5djgm" path="res://objects/platform_falling.tscn" id="9_2fnpo"]
-[ext_resource type="PackedScene" uid="uid://dfpisimsgf5ce" path="res://objects/coin.tscn" id="10_fwhys"]
+[ext_resource type="PackedScene" uid="uid://dfpisimsgf5ce" path="res://objects/RealKey.tscn" id="10_fwhys"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="11_apvpm"]
 [ext_resource type="PackedScene" uid="uid://bpharv43ulngb" path="res://objects/platform_moving.tscn" id="11_milg2"]
 [ext_resource type="PackedScene" uid="uid://dy017k58p20sk" path="res://objects/cloud.tscn" id="13_drtpy"]

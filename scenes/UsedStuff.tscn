@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cjj1riq822gpx" path="res://objects/moving_box.tscn" id="5_1vkdn"]
 [ext_resource type="PackedScene" uid="uid://dhxok27jxvik8" path="res://objects/flag.tscn" id="6_b62hv"]
 [ext_resource type="PackedScene" uid="uid://0v6t454aaexr" path="res://objects/door.tscn" id="7_jvvuo"]
-[ext_resource type="PackedScene" uid="uid://dfpisimsgf5ce" path="res://objects/coin.tscn" id="8_6iw7b"]
+[ext_resource type="PackedScene" uid="uid://dfpisimsgf5ce" path="res://objects/RealKey.tscn" id="8_6iw7b"]
 [ext_resource type="PackedScene" uid="uid://cyvet7kb6y80r" path="res://objects/checkpoint.tscn" id="9_weivu"]
 [ext_resource type="PackedScene" uid="uid://g73m8k0j7lyo" path="res://objects/button.tscn" id="10_h3ijy"]
 [ext_resource type="PackedScene" uid="uid://bprrlrsrodjse" path="res://objects/saw.tscn" id="11_1t6hf"]
