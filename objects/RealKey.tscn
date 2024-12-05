@@ -4,26 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://72ldk18ropuj" path="res://models/props/Textures/colormap.png" id="3_br4yt"]
 [ext_resource type="Texture2D" uid="uid://bs6puxrivhkk2" path="res://sprites/particle.png" id="3_xl1k0"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_bnkeq"]
-radius = 0.484743
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hm51"]
-transparency = 1
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_xl1k0")
-billboard_mode = 1
-billboard_keep_scale = true
-proximity_fade_enabled = true
-
-[sub_resource type="QuadMesh" id="QuadMesh_744xy"]
-
-[sub_resource type="Curve" id="Curve_6a7l3"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.504298, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Gradient" id="Gradient_7tsk2"]
-colors = PackedColorArray(0.996094, 0.910156, 0.351563, 1, 1, 1, 1, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_633q2"]
 resource_name = "colormap"
 cull_mode = 2
@@ -64,8 +44,33 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vw0gv")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_bnkeq"]
+radius = 0.484743
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hm51"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_xl1k0")
+billboard_mode = 1
+billboard_keep_scale = true
+proximity_fade_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_744xy"]
+
+[sub_resource type="Curve" id="Curve_6a7l3"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.504298, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_7tsk2"]
+colors = PackedColorArray(0.996094, 0.910156, 0.351563, 1, 1, 1, 1, 1)
+
 [node name="coin" type="Area3D"]
 script = ExtResource("2_gaakh")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.439508, 0)
+mesh = SubResource("ArrayMesh_u86e7")
+skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -85,10 +90,5 @@ scale_amount_min = 0.15
 scale_amount_max = 0.15
 scale_amount_curve = SubResource("Curve_6a7l3")
 color_ramp = SubResource("Gradient_7tsk2")
-
-[node name="key" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.439508, 0)
-mesh = SubResource("ArrayMesh_u86e7")
-skeleton = NodePath("")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
