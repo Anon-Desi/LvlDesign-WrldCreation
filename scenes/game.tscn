@@ -103,7 +103,7 @@ point_count = 3
 [sub_resource type="Curve3D" id="Curve3D_ein05"]
 bake_interval = 18.0
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -31, 10, -22, 0, 0, 0, 0, 0, 0, -24.815, 9, -21, 0, 0, 0, 0, 0, 0, -24.815, 8.30745, -15.234, 0, 0, 0, 0, 0, 0, -24.815, 9, -21, 0, 0, 0, 0, 0, 0, -31, 10, -22),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -31, 12, -22, 0, 0, 0, 0, 0, 0, -24.815, 9, -21, 0, 0, 0, 0, 0, 0, -24.815, 8.30745, -15.234, 0, 0, 0, 0, 0, 0, -24.815, 9, -21, 0, 0, 0, 0, 0, 0, -31, 12, -22),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
@@ -118,10 +118,10 @@ point_count = 6
 
 [sub_resource type="Curve3D" id="Curve3D_wmqio"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -23.134, 11, -29.81, 0, 0, 0, 0, 0, 0, -16.2386, 11, -37.6366),
-"tilts": PackedFloat32Array(0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -23.134, 11, -29.81, 0, 0, 0, 0, 0, 0, -16.2386, 11, -37.6366, 0, 0, 0, 0, 0, 0, -23.134, 11, -29.81),
+"tilts": PackedFloat32Array(0, 0, 0)
 }
-point_count = 2
+point_count = 3
 
 [node name="Main" type="Node3D"]
 
@@ -131,7 +131,7 @@ environment = ExtResource("26_auemy")
 camera_attributes = SubResource("CameraAttributesPractical_u8ojw")
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("27_l7xw6")]
-transform = Transform3D(-0.694169, 0, -0.719813, 0, 1, 0, 0.719813, 0, -0.694169, 3.31977, 16.3398, -35.8281)
+transform = Transform3D(-0.694169, 0, -0.719813, 0, 1, 0, 0.719813, 0, -0.694169, -8.92098, 16.3398, -23.1352)
 view = NodePath("../View")
 
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target") groups=["View"]]
@@ -282,11 +282,15 @@ transform = Transform3D(0.00339283, -1.21637e-07, -10.9796, 0, 7.8, -1.71234e-07
 [node name="wall7" parent="Real World/Right Wall" instance=ExtResource("1_m1we3")]
 transform = Transform3D(0.00339283, -8.11971, 2.55484e-07, 0, -3.54936e-07, -5.845, 0.399986, 0.0688744, -2.16711e-09, -23.5743, 6.6463, 0.214966)
 
+[node name="wall8" parent="Real World/Right Wall" instance=ExtResource("1_m1we3")]
+transform = Transform3D(0.00339283, -8.11971, 2.55484e-07, 0, -3.54936e-07, -5.845, 0.399986, 0.0688744, -2.16711e-09, -22.8465, 3.36708, 0.208792)
+
 [node name="wall" parent="Real World/Right Wall" instance=ExtResource("1_m1we3")]
 transform = Transform3D(0.00848213, 0, -32.9988, 0, 30, 0, 0.999964, 0, 0.279911, -6.84802, 0.43995, 0.0920639)
 
 [node name="door" parent="Real World/Right Wall" instance=ExtResource("2_ale7m")]
 transform = Transform3D(-1.63, 0, 0.000558376, 0, 2.01, 0, -0.000910163, 0, -1, -24.8922, 0.45871, 0.216316)
+visible = false
 open_door_with_coins = 2
 
 [node name="Left Wall" type="Node3D" parent="Real World"]
@@ -329,7 +333,7 @@ transform = Transform3D(1, 0, 5.06639e-07, 0, 1, 0, -5.06639e-07, 0, 1, -18.044,
 transform = Transform3D(1, 0, 6.55651e-07, 0, 1, 0, -6.55651e-07, 0, 1, -15.3421, 2.5, 1.71986)
 
 [node name="platform-falling" parent="Real World/Left Wall" instance=ExtResource("9_u278b")]
-transform = Transform3D(9.09963e-07, 0, -1, 0, 1, 0, 1, 0, 9.09963e-07, -6.42421, 14.6119, 10.9085)
+transform = Transform3D(9.09963e-07, 0, -1, 0, 1, 0, 1, 0, 9.09963e-07, -5.3132, 16.612, 10.908)
 
 [node name="platform-medium4" parent="Real World/Left Wall" instance=ExtResource("8_pgadf")]
 transform = Transform3D(1.72, 0, 6.55651e-07, 0, 1, 0, -1.43051e-06, 0, 1, -9.57839, 2.5, 1.67654)
@@ -413,14 +417,37 @@ transform = Transform3D(1, 0, 2.14577e-06, 0, 1, 0, -2.14577e-06, 0, 1, -8.382, 
 [node name="platform-medium12" parent="Real World/Left Wall" instance=ExtResource("8_pgadf")]
 transform = Transform3D(1, 0, 2.14577e-06, 0, 1, 0, -2.14577e-06, 0, 1, -5.23999, 7.5, 32.9085)
 
+[node name="platform-medium14" parent="Real World/Left Wall" instance=ExtResource("8_pgadf")]
+transform = Transform3D(1, 0, 2.14577e-06, 0, 1, 0, -2.14577e-06, 0, 1, 7.98647, 12.5, 24)
+
+[node name="platform-medium15" parent="Real World/Left Wall" instance=ExtResource("8_pgadf")]
+transform = Transform3D(1, 0, 2.14577e-06, 0, 1, 0, -2.14577e-06, 0, 1, 4.96421, 12.5, 24)
+
+[node name="button" parent="Real World/Left Wall/platform-medium15" node_paths=PackedStringArray("target") instance=ExtResource("5_qrru3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305096, 0.544255, 1.49012e-08)
+target = NodePath("../../../../Extras/MovingPaths/6thMovingObstacle")
+pressed_by_default = true
+
 [node name="platform-medium26" parent="Real World/Left Wall" instance=ExtResource("8_pgadf")]
 transform = Transform3D(1, 0, 2.14577e-06, 0, 1, 0, -2.14577e-06, 0, 1, 4.765, 5.5, 32.929)
 
 [node name="Plank_Platform_2" parent="Real World/Left Wall/platform-medium26" instance=ExtResource("20_2unnw")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 3.811, -0.5, -2.937)
 
+[node name="Plank_Platform_3" parent="Real World/Left Wall" instance=ExtResource("20_2unnw")]
+transform = Transform3D(-2, 0, -4.17233e-06, 0, 2, 0, 4.17233e-06, 0, -2, -2, 8.5, 33.447)
+
+[node name="Plank_Platform_4" parent="Real World/Left Wall" instance=ExtResource("20_2unnw")]
+transform = Transform3D(-2, 0, -4.17233e-06, 0, 2, 0, 4.17233e-06, 0, -2, 3, 9.5, 33.447)
+
+[node name="Plank_Platform_5" parent="Real World/Left Wall" instance=ExtResource("20_2unnw")]
+transform = Transform3D(-2, 0, -4.17233e-06, 0, 2, 0, 4.17233e-06, 0, -2, 8, 10.5, 33.447)
+
+[node name="Plank_Platform_6" parent="Real World/Left Wall" instance=ExtResource("20_2unnw")]
+transform = Transform3D(4.25975e-06, 0, -2, 0, 2, 0, 2, 0, 4.25975e-06, 8.606, 11.54, 30)
+
 [node name="platform-medium13" parent="Real World/Left Wall" instance=ExtResource("8_pgadf")]
-transform = Transform3D(1, 0, 2.14577e-06, 0, 1, 0, -2.14577e-06, 0, 1, -17, 11, 18.951)
+transform = Transform3D(1, 0, 2.14577e-06, 0, 1, 0, -2.14577e-06, 0, 1, -17, 13, 18.951)
 
 [node name="checkpoint" parent="Real World/Left Wall/platform-medium13" instance=ExtResource("7_mp8tq")]
 transform = Transform3D(1, 0, 3.57628e-07, 0, 1, 0, -3.57628e-07, 0, 1, -0.669609, 0.592504, 0.820414)
@@ -441,13 +468,13 @@ transform = Transform3D(2.5, 0, 3.21865e-06, 0, 1, 0, -5.36442e-06, 0, 1.5, -39.
 transform = Transform3D(2.5, 0, 3.21865e-06, 0, 1, 0, -5.36442e-06, 0, 1.5, -39.4916, 10, 27.8499)
 
 [node name="platform-medium18" parent="Real World/Left Wall" instance=ExtResource("8_pgadf")]
-transform = Transform3D(1, 0, 2.14577e-06, 0, 1, 0, -2.14577e-06, 0, 1, -22, 11, 18.951)
+transform = Transform3D(1, 0, 2.14577e-06, 0, 1, 0, -2.14577e-06, 0, 1, -22, 13, 18.951)
 
 [node name="platform-medium20" parent="Real World/Left Wall" instance=ExtResource("8_pgadf")]
-transform = Transform3D(1, 0, 2.14577e-06, 0, 1, 0, -2.14577e-06, 0, 1, -22, 12, 14)
+transform = Transform3D(1, 0, 2.14577e-06, 0, 1, 0, -2.14577e-06, 0, 1, -22, 14, 14)
 
 [node name="platform-medium19" parent="Real World/Left Wall" instance=ExtResource("8_pgadf")]
-transform = Transform3D(5, 0, 4.29153e-06, 0, 1, 0, -1.07288e-05, 0, 2, -11, 13, 12)
+transform = Transform3D(5, 0, 4.29153e-06, 0, 1, 0, -1.07288e-05, 0, 2, -10, 15, 12)
 
 [node name="spike-block" parent="Real World/Left Wall/platform-medium19" instance=ExtResource("14_sja2r")]
 transform = Transform3D(-0.0026733, 0, 0.199982, 0, 1, 0, -0.499955, 0, -0.00668323, -0.575051, 0.650508, 0.280445)
@@ -1028,7 +1055,7 @@ transform = Transform3D(1, 0, -1.03315e-06, 0, 0.667, 0, 1.03315e-06, 0, 1, -11.
 transform = Transform3D(0.761883, 0, -0.647716, 0, 1, 0, 0.647716, 0, 0.761883, 0, 0, 0)
 curve = SubResource("Curve3D_ein05")
 object_to_move = NodePath("platform-moving2")
-movement_speed = 1.5
+movement_speed = 2.5
 
 [node name="platform-moving2" parent="Extras/MovingPaths/2ndMovingPlatformPath" instance=ExtResource("16_hnnjl")]
 transform = Transform3D(1, 0, -6.94394e-06, 0, 1, 0, 6.94394e-06, 0, 1, -24.8628, 7.94553, -15.4965)
@@ -1044,8 +1071,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.072, 10.5, -31.179)
 [node name="6thMovingObstacle" parent="Extras/MovingPaths" node_paths=PackedStringArray("object_to_move") instance=ExtResource("15_d8mho")]
 curve = SubResource("Curve3D_wmqio")
 object_to_move = NodePath("spike-block-wide3")
-movement_speed = 2.5
-look_at_object_when_activated = true
+movement_speed = 6.0
+ping_pong = true
 
 [node name="spike-block-wide3" parent="Extras/MovingPaths/6thMovingObstacle" instance=ExtResource("11_74wny")]
 transform = Transform3D(0.658886, 0, 0.752243, 0, 1, 0, -0.752243, 0, 0.658886, -16.6107, 11, -37.1703)
