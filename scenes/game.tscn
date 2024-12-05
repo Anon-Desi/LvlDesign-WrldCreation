@@ -131,7 +131,7 @@ environment = ExtResource("26_auemy")
 camera_attributes = SubResource("CameraAttributesPractical_u8ojw")
 
 [node name="Player" parent="." node_paths=PackedStringArray("view") instance=ExtResource("27_l7xw6")]
-transform = Transform3D(-0.694169, 0, -0.719813, 0, 1, 0, 0.719813, 0, -0.694169, -8.92098, 16.3398, -23.1352)
+transform = Transform3D(-0.694169, 0, -0.719813, 0, 1, 0, 0.719813, 0, -0.694169, 21.4329, 1.91541, -54.6104)
 view = NodePath("../View")
 
 [node name="View" type="Node3D" parent="." node_paths=PackedStringArray("target") groups=["View"]]
